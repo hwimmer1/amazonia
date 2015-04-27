@@ -8,7 +8,7 @@ import java.net.URISyntaxException;
 import java.sql.*;
 
 public class Main extends HttpServlet {
-  @Override
+/*  @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
@@ -17,12 +17,19 @@ public class Main extends HttpServlet {
     } else {
       //showHome(req,resp);
     }
-  }
+  }*/
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException, InterruptedException {
-        Thread.sleep(4000);
+      throws ServletException, IOException {
+
+        try {
+          Thread.sleep(4000);
+        } catch (InterruptedException e) {
+
+        }
+
+
         resp.getWriter().print("Hello from Java!");
     /*if (req.getRequestURI().endsWith("/other")) {
       //showOther(req,resp);
