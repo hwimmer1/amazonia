@@ -1,6 +1,6 @@
-# java-getting-started
+# java-counterfeit-servlet
 
-A barebones Java app, which can easily be deployed to Heroku.  
+A rework of the java-getting-started Heroku template to allow Dr. Wimmer's counterfeit detection library to receive Amazon reviews, perform detection functions, and respond with a counterfeit score.
 
 This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
@@ -16,6 +16,12 @@ $ foreman start web
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+## Compiling Changes to Java Source
+
+```sh
+$ mvn compile
+```
 
 ## Deploying to Heroku
 
