@@ -4,15 +4,26 @@ A rework of the java-getting-started Heroku template to allow Dr. Wimmer's count
 
 This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-## Running Locally
+## Downloading and Installing
+
+```sh
+$ git clone https://leonidkukuyev@bitbucket.org/leonidkukuyev/java-counterfeit-servlet.git
+$ cd java-counterfeit-servlet
+$ mvn install
+```
+
+## Running Locally on Linux
 
 Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
 $ foreman start web
+```
+
+## Running locally on Windows
+
+```sh
+$ foreman start web -f Procfile.windows
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
