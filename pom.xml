@@ -8,6 +8,13 @@
   <artifactId>helloworld</artifactId>
   <dependencies>
     <dependency>
+      <groupId>ScoreDetector.detector</groupId>
+      <artifactId>ScoreDetector</artifactId>
+      <version>1</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/ScoreDetector.jar</systemPath>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
       <version>7.6.0.v20120127</version>

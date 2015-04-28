@@ -6,6 +6,7 @@ import org.eclipse.jetty.servlet.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
+import detector.*;
 
 public class Main extends HttpServlet {
 /*  @Override
@@ -28,9 +29,10 @@ public class Main extends HttpServlet {
         } catch (InterruptedException e) {
 
         }
+        
+        String score = ScoreDetector.parseReviews("asd");
 
-
-        resp.getWriter().print("Hello from Java!");
+        resp.getWriter().print(score);
     /*if (req.getRequestURI().endsWith("/other")) {
       //showOther(req,resp);
     } else {
