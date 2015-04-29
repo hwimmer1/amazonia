@@ -45,6 +45,26 @@ $ git push heroku master
 $ heroku open
 ```
 
+## ScoreDetector.jar
+
+### Updating
+
+To make changes to the ScoreDetector library, compile the jar from outside of this Maven repo, then replace the existing ScoreDetector.jar in /lib/.
+The pom.xml already contains a System Scope dependency that includes ScoreDetector.jar.
+
+```xml
+    <dependency>
+      <groupId>ScoreDetector.detector</groupId>
+      <artifactId>ScoreDetector</artifactId>
+      <version>1</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/ScoreDetector.jar</systemPath>
+    </dependency>
+```
+
+This is not a "stable" method of including external libraries.
+
+
 ## Documentation
 
 For more information about using Java on Heroku, see these Dev Center articles:
