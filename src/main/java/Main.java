@@ -24,11 +24,11 @@ public class Main extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-        try {
+        /*try {
           Thread.sleep(4000);
         } catch (InterruptedException e) {
 
-        }
+        }*/
         
         String score = ScoreDetector.parseReviews("asd");
 
