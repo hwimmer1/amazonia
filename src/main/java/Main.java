@@ -1,6 +1,12 @@
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Writer;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+import org.apache.commons.io.IOUtils;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
 import java.net.URI;
@@ -29,8 +35,13 @@ public class Main extends HttpServlet {
         } catch (InterruptedException e) {
 
         }*/
+        InputStream body = req.getInputStream();
+
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(body, writer, StandardCharsets.UTF_8);
+        String theString = writer.toString();
         
-        String score = ScoreDetector.parseReviews("NEWHerokuTest");
+        String score = ScoreDetector.parseReviews(theString);
 
         resp.getWriter().print(score);
     /*if (req.getRequestURI().endsWith("/other")) {
