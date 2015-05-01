@@ -30,7 +30,7 @@ public class Main extends HttpServlet {
 
         }*/
         
-        String score = ScoreDetector.parseReviews("HerokuTest");
+        String score = ScoreDetector.parseReviews("NEWHerokuTest");
 
         resp.getWriter().print(score);
     /*if (req.getRequestURI().endsWith("/other")) {
