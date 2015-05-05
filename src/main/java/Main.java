@@ -1,9 +1,12 @@
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
+import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.apache.commons.io.IOUtils;
@@ -15,51 +18,44 @@ import java.sql.*;
 import detector.*;
 
 public class Main extends HttpServlet {
-/*  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
 
-    if (req.getRequestURI().endsWith("/other")) {
-      //showOther(req,resp);
-    } else {
-      //showHome(req,resp);
-    }
-  }*/
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-
-        /*try {
-          Thread.sleep(4000);
-        } catch (InterruptedException e) {
-
-        }*/
-        InputStream body = req.getInputStream();
-
+        //Fill String with HTTPServletRequest Text
+        InputStream reqBody = req.getInputStream();
         StringWriter writer = new StringWriter();
-        IOUtils.copy(body, writer, StandardCharsets.UTF_8);
+        IOUtils.copy(reqBody, writer, StandardCharsets.UTF_8);
         String theString = writer.toString();
+
+        //Write String to textfile
+        String separator_type = System.getProperty("file.separator");
+        String user_dir = System.getProperty("user.dir").concat(separator_type);
+        String path = user_dir.concat("reviews.txt");
         
-        String score = ScoreDetector.parseReviews(theString);
+        //Textfile Writer
+        PrintWriter out = new PrintWriter(path);
+        out.println(theString);
+        out.close();
 
-        resp.getWriter().print(score);
-    /*if (req.getRequestURI().endsWith("/other")) {
-      //showOther(req,resp);
-    } else {
-      //showHome(req,resp);
-    }*/
+        //pass path to ScoreDetector
+          //String score = ScoreDetector.parseReviews(theString);
+        //Score detector should perform Counterfeit Detection
+
+        //read contents of TextFile to test POST message functioning and Heroku-hosted text writing
+        String content = readFile("reviews.txt", StandardCharsets.UTF_8);
+
+        resp.getWriter().print(content);
+   
   }
 
-/*  private void showHome(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
-    resp.getWriter().print("Hello from Java!");
+
+  static String readFile(String path, Charset encoding) throws IOException {
+    byte[] encoded = Files.readAllBytes(Paths.get(path));
+    return new String(encoded, encoding);
   }
-  
-  private void showOther(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
-    resp.getWriter().print("Hello from Other!");
-  }*/
+
 
 
   public static void main(String[] args) throws Exception {
