@@ -3,9 +3,7 @@
 A rework of the java-getting-started Heroku template to allow Dr. Wimmer's counterfeit detection library to receive Amazon reviews, perform detection functions, and respond with a counterfeit score.
 
 ## What's Next:
-- Rebuild ScoreDetector.jar to write a textfile, then read the textfile contents
-- Test file writing functionality in Heroku
-- Maybe include empty text file with repo, have main.java edit the file
+- Implement working Counterfeit Dection library to perform actual detection functions
 
 ## Downloading and Installing
 
