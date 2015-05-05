@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.sql.*;
 import detector.*;
 
+
+
 public class Main extends HttpServlet {
 
 
@@ -49,7 +51,8 @@ public class Main extends HttpServlet {
         //read contents of TextFile to test POST message functioning and Heroku-hosted text writing
         String content = readFile("reviews.txt", StandardCharsets.UTF_8);
 
-        resp.getWriter().print("Score:" + score + " // Reviews.txt contents: " + content);
+        resp.getWriter().print("Score:" + score + " // Reviews.txt contents: " + content + "Wimmer");
+        //resp.getWriter().print("Score:" + score);
    
   }
 
