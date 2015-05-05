@@ -41,7 +41,8 @@ public class Main extends HttpServlet {
         out.println(theString);
         out.close();
 
-        String score = ScoreDetector.parseReviews(user_dir + "score.txt");
+        //String score = ScoreDetector.parseReviews(user_dir + "score.txt");
+        String score = ScoreDetector.parseReviews("score.txt");
 
         //pass user_dir+score.txt to ScoreDetector
           //String score = ScoreDetector.parseReviews(theString);
