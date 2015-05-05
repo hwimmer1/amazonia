@@ -1,1 +1,1 @@
-NEWTEST
+Test with new "dumb" scoreDetector

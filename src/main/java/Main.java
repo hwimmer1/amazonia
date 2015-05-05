@@ -39,14 +39,17 @@ public class Main extends HttpServlet {
         out.println(theString);
         out.close();
 
-        //pass path to ScoreDetector
+        String score = ScoreDetector.parseReviews(user_dir + "score.txt");
+
+        //pass user_dir+score.txt to ScoreDetector
           //String score = ScoreDetector.parseReviews(theString);
         //Score detector should perform Counterfeit Detection
+        //Return a score
 
         //read contents of TextFile to test POST message functioning and Heroku-hosted text writing
         String content = readFile("reviews.txt", StandardCharsets.UTF_8);
 
-        resp.getWriter().print(content);
+        resp.getWriter().print("Score:" + score + " // Reviews.txt contents: " + content);
    
   }
 
